@@ -1,8 +1,8 @@
 import express from 'express'
 import carRouter from './modules/cars/cars.routes.js'
 import customersRouter from './modules/customers/customers.routes.js'
-import rentalRouter from './modules/rentals/rental.routes.js'
-import specialRouter from './modules/specialAPIs/special.routes.js'
+// import rentalRouter from './modules/rentals/rental.routes.js'
+// import specialRouter from './modules/specialAPIs/special.routes.js'
 
 
 const app = express()
