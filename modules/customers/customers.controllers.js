@@ -1,6 +1,13 @@
 import { ObjectId } from "mongodb";
 import { db } from "../../database/connection.js";
 import bcrypt from 'bcrypt'
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+
+dotenv.config();
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const signup = async (req, res) => {
     try {
@@ -34,19 +41,33 @@ const signup = async (req, res) => {
 
 const signin=(req,res)=>{
     res.json(req.body.user._id)
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "7d" });
 }
 
 
 
+const authenticateJWT = (req, res, next) => {
+    const token = req.headers.authorization?.split(" ")[1];
+
+    if (!token) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        return res.status(403).json({ message: "Invalid or expired token" });
+    }
+};
+
+// Get logged-in user
 const getLoggedInCustomer = async (req, res) => {
     try {
-        if (!req.user) {
-            return res.status(401).json({ message: "Unauthorized" });
-        }
-
         const user = await db.collection("customers").findOne(
             { _id: new ObjectId(req.user.id) },
-            { projection: { fullname: 1, username: 1, email: 1, _id: 0 } }
+            { projection: { fullname: 1, username: 1, email: 1 } }
         );
 
         if (!user) {
@@ -61,10 +82,9 @@ const getLoggedInCustomer = async (req, res) => {
 };
 
 
-
-
 export {
     signup,
     signin,
     getLoggedInCustomer,
+    authenticateJWT 
 }
