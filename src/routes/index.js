@@ -9,6 +9,7 @@ router.post("/register", register);
 router.post("/login", login);
 router.get("/rental-cars", getRentalCars);
 router.get("/my-profile", authMiddleware, myProfile);
+//Just to help adding new cars
 router.post("/cars", addCar); 
 
 export default router;
