@@ -1,19 +1,21 @@
 # API Documentation
 
+#### Clone repository
+
 git clone https://github.com/kaltrinabaliu/carRental.git
 
-install the MongoDB for VS Code
+#### install the MongoDB for VS Code extension on VS Code
 
-create the .env file
+#### create the .env file with this content
 
 MONGO_URI=mongodb://localhost:27017/carRental
 JWT_SECRET=supersecretkey
 
-to install
+#### Install dependencies:
 
 npm install
 
-run
+#### Start the server:
 
 npm start
 
@@ -32,11 +34,18 @@ npm start
 ### 3. My profile
 
 - **Route:** GET /api/my-profile
-- **Description:** Get user loged in details.
+- **Description:** Retrieves details of the logged-in user.
+
+## Car APIs
 
 ### 4. Rental cars
 
 - **Route:** GET /api/rental-cars?
-- **Description:** Get cars to rent sorted from lowest
-  to highest price, also you can filter by params(year, color,
-  steering type, and number of seats).
+  - **Description:**
+    - Retrieves a list of available rental cars.
+    - Sorted from **lowest to highest price** by default.
+    - Supports filtering by:
+      - **Year:** `?year=YYYY`
+      - **Color:** `?color=red`
+      - **Steering Type:** `?steering_type=automatic`
+      - **Number of Seats:** `?number_of_seats=4`
