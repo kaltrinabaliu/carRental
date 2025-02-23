@@ -1,7 +1,6 @@
 import { db } from "../db/rent.js";
 import { ObjectId } from "mongodb";
 
-
 export const createUser = async (userData) => {
   return await db.collection("users").insertOne(userData);
 };
