@@ -11,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", routes);
 
-connectDB();
-
-app.listen(3000, () => console.log("Server running on port 3000"));
+(async () => {
+    await connectDB(); // Ensure DB is connected before starting the server
+    app.listen(3000, () => console.log("Server running on port 3000"));
+  })();

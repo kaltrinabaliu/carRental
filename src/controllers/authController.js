@@ -1,4 +1,5 @@
 import { registerUser, loginUser } from "../services/authServices.js";
+import { getUserProfile } from "../services/userServices.js";
 
 export const register = async (req, res) => {
   try {
@@ -18,4 +19,11 @@ export const login = async (req, res) => {
   }
 };
 
-
+export const myProfile = async (req, res) => {
+  try {
+    const userProfile = await getUserProfile(req.user.userId);
+    res.json(userProfile);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
