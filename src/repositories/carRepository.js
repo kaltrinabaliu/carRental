@@ -10,7 +10,7 @@ export const getAllCars = async (filters = {}) => {
   if (filters.number_of_seats) query.number_of_seats = parseInt(filters.number_of_seats);
   
   return await db.collection("cars")
-    .find(filters)  
+    .find(query)  
     .sort({ price_per_day: 1 })  
     .toArray();  
 };
