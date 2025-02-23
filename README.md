@@ -25,16 +25,27 @@ npm start
 
 - **Route:** POST /api/register
 - **Description:** Creates a new user account.
+- **Request Body:** {
+  "fullName": "John Doe",
+  "email": "johndoe2@example.com",
+  "username": "johndoe12345",
+  "password": "SecureP@ss1"
+  }
 
 ### 2. Sign in
 
 - **Route:** POST /api/login
 - **Description:** Logs in an existing user.
+- **Request Body:**{
+  "username": "johndoe12345",
+  "password": "SecureP@ss1"
+  }
 
 ### 3. My profile
 
 - **Route:** GET /api/my-profile
 - **Description:** Retrieves details of the logged-in user.
+- **Token:** Generated token from login
 
 ## Car APIs
 
