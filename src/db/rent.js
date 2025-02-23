@@ -1,14 +1,14 @@
-const { MongoClient } = require("mongodb");
-const dotenv = require("dotenv");
+import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 const client = new MongoClient(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
 });
 
-async function connectDB() {
+export async function connectDB() {
   try {
     await client.connect();
     console.log("Connected to MongoDB");
@@ -18,4 +18,4 @@ async function connectDB() {
 }
 
 const db = client.db("carRental");
-module.exports = { connectDB, db };
+export default{ connectDB, db };

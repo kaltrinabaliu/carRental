@@ -1,7 +1,7 @@
-const express = require("express");
-const { register, login } = require("../controllers/authController");
-const { getRentalCars } = require("../controllers/carController");
-const authMiddleware = require("../utils/authMiddleware");
+import express from "express";
+import { register, login } from "../controllers/authController.js";
+import { getRentalCars } from "../controllers/carController.js";
+import authMiddleware from "../utils/authMiddleware.js";
 
 const router = express.Router();
 
@@ -12,4 +12,4 @@ router.get("/my-profile", authMiddleware, (req, res) => {
   res.json(req.user);
 });
 
-module.exports = router;
+export default router;

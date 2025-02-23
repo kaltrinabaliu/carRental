@@ -1,7 +1,6 @@
-const User = require("../db/models/user");
+import User from "../models/user.js";
 
-const createUser = async (userData) => await User.create(userData);
-const findUserByUsername = async (username) => await User.findOne({ username });
-const findUserById = async (id) => await User.findById(id);
+export const createUser = async (userData) => await User.create(userData);
+export const findUserByUsername = async (username) => await User.findOne({ username });
+export const findUserById = async (id) => await User.findById(id);
 
-module.exports = { createUser, findUserByUsername, findUserById };

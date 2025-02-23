@@ -1,6 +1,6 @@
-const { getAllCars } = require("../repositories/carRepository");
+import { getAllCars } from "../repositories/carRepository.js";
 
-const getRentalCars = async (req, res) => {
+export const getRentalCars = async (req, res) => {
   try {
     const cars = await getAllCars(req.query);
     res.json(cars);
@@ -9,4 +9,3 @@ const getRentalCars = async (req, res) => {
   }
 };
 
-module.exports = { getRentalCars };

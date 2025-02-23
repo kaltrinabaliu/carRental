@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const CarSchema = new mongoose.Schema({
   name: String,
@@ -9,4 +9,4 @@ const CarSchema = new mongoose.Schema({
   number_of_seats: Number,
 });
 
-module.exports = mongoose.model("Car", CarSchema);
+export default mongoose.model("Car", CarSchema);

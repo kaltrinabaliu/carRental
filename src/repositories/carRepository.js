@@ -1,7 +1,6 @@
-const Car = require("../models/car");
+import Car from "../models/car.js";
 
-const getAllCars = async (filters = {}) => {
+export const getAllCars = async (filters = {}) => {
   return await Car.find(filters).sort({ price_per_day: 1 });
 };
 
-module.exports = { getAllCars };
