@@ -1,21 +1,21 @@
 # API Documentation
 
-#### Clone repository
+### 1. Clone repository
 
 git clone https://github.com/kaltrinabaliu/carRental.git
 
-#### install the MongoDB for VS Code extension on VS Code
+### 2. install the MongoDB for VS Code extension on VS Code
 
-#### create the .env file with this content
+### 3. create the .env file with this content
 
-MONGO_URI=mongodb://localhost:27017/carRental
-JWT_SECRET=supersecretkey
+- MONGO_URI=mongodb://localhost:27017/carRental
+- JWT_SECRET=supersecretkey
 
-#### Install dependencies:
+### 4. Install dependencies:
 
 npm install
 
-#### Start the server:
+### 5. Start the server:
 
 npm start
 
